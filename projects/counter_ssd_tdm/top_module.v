@@ -7,7 +7,9 @@ module top_module(
 );
     wire clk_slow;
     wire [9:0] count;
-    wire [3:0] thousands,hundreds,tens, ones;
+    wire [3:0] d0,d1,d2, d3;
+    
+    wire [3:0] digit;
 
     // Generate 1Hz clock for counting
     clk_divider clk_div1 (
@@ -17,31 +19,38 @@ module top_module(
     );
 
     // 10-bit Counter
-    counter counter_8bit (
+    counter_10bit counter1 (
         .slow_clk(clk_slow),
         .rst(rst),
         .count(count)
     );
 
     // Convert Binary to BCD
-    bin_to_bcd converter1 (
+    bin_to_digit_converter converter1 (
         .bin(count),
-        .thousands(thousands),
-        .hundreds(hundreds),
-        .tens(tens),
-        .ones(ones)
+        .d0(d0),
+        .d1(d1),
+        .d2(d2),
+        .d3(d3)
     );
 
     // Multiplexing Display for 3 Digits
-    seven_seg_mux display_mux (
+    tdm_digit_select (
         .clk(clk),  // Fast clock for switching
         .rst(rst),
-        .thousands(thousands),
-        .hundreds(hundreds),
-        .tens(tens),
-        .ones(ones),
-        .seg(seg),
+        .d0(d0),
+        .d1(d1),
+        .d2(d2),
+        .d3(d3),
+        .digit(digit),
         .an(an)
+    );                          
+    
+    
+    // Instantiate the seven-segment decoder
+    seven_seg_decoder decoder (
+        .bin(digit),
+        .seg(seg)
     );
 
 endmodule

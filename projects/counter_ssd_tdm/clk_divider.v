@@ -12,7 +12,7 @@ module clk_divider (
             slow_clk <= 0;end 
             else begin
                 counter <= counter + 1;
-                if (counter == 10_000_000) begin // Toggle at 50M counts (1 Hz)
+                if (counter == 49_999_999) begin // Toggle at 50M counts (1 Hz)
                     slow_clk <= ~slow_clk;
                     counter <= 0;
                 end
