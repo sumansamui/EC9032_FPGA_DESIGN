@@ -22,42 +22,6 @@ This course focuses on practical FPGA implementation of digital systems using HD
 
 ---
 
-## 📂 Repository Structure
-
-```text
-EC9032_FPGA_DESIGN/
-├── Syllabus.pdf
-├── Lecture_Notes/
-│   ├── FPGA_Introduction.pdf
-│   ├── Design_Flow.pdf
-│   ├── Timing_Analysis.pdf
-│   └── ...
-├── HDL_Codes/
-│   ├── Combinational/
-│   ├── Sequential/
-│   ├── FSM/
-│   ├── Counters/
-│   └── Arithmetic_Units/
-├── Lab_Experiments/
-│   ├── Seven_Segment_Display/
-│   ├── UART/
-│   ├── Memory_Interface/
-│   ├── Clock_Divider/
-│   └── ...
-├── Mini_Projects/
-│   ├── MAC_Unit/
-│   ├── GCD/
-│   ├── FIFO/
-│   ├── Moving_Average_Filter/
-│   └── ...
-└── XDC_Constraints/
-    ├── Basys3.xdc
-    ├── Spartan7.xdc
-    └── ...
-```
-
----
-
 ## 🛠 Recommended Tools
 
 ### Simulation
