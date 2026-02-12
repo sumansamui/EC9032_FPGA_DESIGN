@@ -7,7 +7,7 @@ module counter_10bit (
     always @(posedge slow_clk or posedge rst) begin
         if (rst)
             count <= 0;
-        else if (count==8'd9)
+        else if (count==10'd1021)
             count<=0;
         else
             count <= count + 1;
