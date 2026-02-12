@@ -7,7 +7,7 @@ This repository contains lecture materials, lab experiments, HDL codes, FPGA boa
 
 ---
 
-## 📘 Course Overview
+##  Course Overview
 
 This course focuses on practical FPGA implementation of digital systems using HDL (Verilog/VHDL), synthesis tools, and hardware validation.
 
@@ -22,7 +22,7 @@ This course focuses on practical FPGA implementation of digital systems using HD
 
 ---
 
-## 🛠 Recommended Tools
+## Recommended Tools
 
 ### Simulation
 - Icarus Verilog + GTKWave  
@@ -36,7 +36,7 @@ This course focuses on practical FPGA implementation of digital systems using HD
 
 
 
-### 3️⃣ Vivado Flow
+###  Vivado Flow
 1. Create New Project
 2. Add HDL source files
 3. Add constraints (.xdc)
@@ -47,7 +47,7 @@ This course focuses on practical FPGA implementation of digital systems using HD
 
 ---
 
-## 🧪 Lab Workflow
+## Lab Workflow
 
 1. Read the experiment problem statement
 2. Design RTL module(s)
@@ -59,7 +59,7 @@ This course focuses on practical FPGA implementation of digital systems using HD
 
 ---
 
-## 📚 Suggested References
+## Suggested References
 
 1. Samir Palnitkar — *Verilog HDL*
 2. J. Bhaskar — *Verilog HDL Synthesis*
