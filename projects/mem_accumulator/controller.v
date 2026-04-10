@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 
-module controller(clk,rst,go,cmp,ld_m,ld_acc,ld_out,addr_inc,done,rw,ps);
+module controller(clk,rst,go,cmp,ld_m,ld_acc,ld_out,addr_inc,done,re,we,ps);
 input clk,rst,go,cmp;
-output reg ld_m,ld_acc,ld_out,done,addr_inc,rw;
+output reg ld_m,ld_acc,ld_out,done,addr_inc,re,we;
 
 output reg [2:0] ps;
 reg [2:0] ns;
@@ -32,10 +32,10 @@ always @(go or cmp or ps)
 begin
 case(ps)
 s0: begin
-if (go==1'b0)
-ns=s0;
-else
+if (go==1'b1)
 ns=s1;
+else
+ns=s0;
 end
 s1:ns=s2;
 s2:ns=s3;
@@ -61,7 +61,8 @@ ld_acc=1'b0;
 ld_out=1'b0;
 done=1'b0;
 addr_inc=1'b0;
-rw=1'bx;
+re=1'b0;
+we=1'b0;
 end
 s1:begin
 ld_m=1'b0;
@@ -69,7 +70,8 @@ ld_acc=1'b0;
 ld_out=1'b0;
 done=1'b0;
 addr_inc=1'b1;
-rw=1'b1;
+re=1'b1;
+we=1'b0;
 end
 s2:begin
 ld_m=1'b1;
@@ -77,7 +79,8 @@ ld_acc=1'b0;
 ld_out=1'b0;
 done=1'b0;
 addr_inc=1'b0;
-rw=1'bx;
+re=1'b0;
+we=1'b0;
 end
 s3:begin
 ld_m=1'b0;
@@ -85,7 +88,8 @@ ld_acc=1'b1;
 ld_out=1'b0;
 done=1'b0;
 addr_inc=1'b0;
-rw=1'bx;
+re=1'b0;
+we=1'b0;
 end
 s4:begin
 ld_m=1'b0;
@@ -93,7 +97,8 @@ ld_acc=1'b0;
 ld_out=1'b0;
 done=1'b0;
 addr_inc=1'b0;
-rw=1'bx;
+re=1'b0;
+we=1'b0;
 end
 s5:begin
 ld_m=1'b0;
@@ -101,7 +106,8 @@ ld_acc=1'b0;
 ld_out=1'b1;
 done=1'b1;
 addr_inc=1'b0;
-rw=1'bx;
+re=1'b0;
+we=1'b0;
 end
 default:begin
 ld_m=1'b0;
@@ -109,7 +115,8 @@ ld_acc=1'b0;
 ld_out=1'b0;
 done=1'b0;
 addr_inc=1'b0;
-rw=1'bx;
+re=1'b0;
+we=1'b0;
 end
 endcase
 end

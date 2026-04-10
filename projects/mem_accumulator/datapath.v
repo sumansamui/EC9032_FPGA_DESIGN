@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
-module datapath(clk,rst,data_in,ld_m,ld_acc,ld_out,rw,addr_inc,cmp,out,tacc,addr);
-input clk,rst,ld_m,ld_acc,ld_out,rw,addr_inc;
+module datapath(clk,rst,data_in,ld_m,ld_acc,ld_out,re,we,addr_inc,cmp,out,tacc,addr);
+input clk,rst,ld_m,ld_acc,ld_out,re,we,addr_inc;
 output cmp;
 output [7:0] out;
 output [7:0] tacc;
@@ -15,5 +15,5 @@ comparator comp1(addr,cmp);
 register_8bit rm(clk,rst,tmin,ld_m,tmout);
 register_8bit racc(clk,rst,tadd,ld_acc,tacc);
 register_8bit rout(clk,rst,tacc,ld_out,out);
-memory mem1(clk,rw,addr,data_in,tmin);
+memory mem1(clk,re,we,addr,data_in,tmin);
 endmodule

@@ -1,6 +1,7 @@
 module memory (
     input wire clk,          // Clock signal
-    input wire rw,           // Read/Write control (1 = Read, 0 = Write)
+    input wire re,           // Read/Write 
+    input wire we,
     input wire [3:0] addr,   // 4-bit address (16 locations)
     input wire [7:0] data_in,// 8-bit input data (for write)
     output reg [7:0] data_out // 8-bit output data (for read)
@@ -35,10 +36,22 @@ module memory (
     
     
     always @(posedge clk) begin
-        if (rw) 
+        if (re) 
             data_out <= mem[addr]; // Read operation (rw = 1)
-        else if (!rw)
+        else if (we)
             mem[addr] <= data_in;  // Write operation (rw = 0)
     end
 
 endmodule
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,7 +4,7 @@ module comparator (
     output reg result    // Output: 1 if a == 9, else 0
 );
     always @(a) begin
-        if (a == 4'b0101) // 4'b1001 is the binary representation of 9
+        if (a == 4'b1010) // 4'b1001 is the binary representation of 9
             result = 1;
         else
             result = 0;
